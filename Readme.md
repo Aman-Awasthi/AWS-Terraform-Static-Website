@@ -35,3 +35,5 @@ Follow these steps to execute the project and host your static website on AWS:
 6. **Apply Configuration:** Apply the Terraform configuration to create the infrastructure:
 
 7. **Test Your Website:** Access your static website by using the URL provided by AWS or your custom domain (if configured).
+
+Check the blog for steps to implement the project - https://amana6420.hashnode.dev/terraform-aws-static-website-hosting
