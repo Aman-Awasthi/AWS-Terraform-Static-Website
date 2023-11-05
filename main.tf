@@ -8,30 +8,33 @@ resource "aws_s3_bucket" "mybucket" {
   }
 }
 
-#uploading files to bucket
+#uploading index.html to bucket
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.mybucket.id
   key          = "index.html"
   source       = "index.html"
   acl          = "public-read"
   content_type = "text/html"
+  depends_on = [ aws_s3_bucket_public_access_block.accessblock ]
 }
 
-#uploading files to bucket
+#uploading error.html to bucket
 resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.mybucket.id
   key          = "error.html"
   source       = "error.html"
   acl          = "public-read"
   content_type = "text/html"
+  depends_on = [ aws_s3_bucket_public_access_block.accessblock ]
 }
 
-#uploading files to bucket
+#uploading image to bucket
 resource "aws_s3_object" "image" {
   bucket = aws_s3_bucket.mybucket.id
   key    = "profile.jpg"
   source = "profile.jpg"
   acl    = "public-read"
+  depends_on = [ aws_s3_bucket_public_access_block.accessblock ]
 }
 
 resource "aws_s3_bucket_public_access_block" "accessblock" {
